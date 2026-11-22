@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karirfy by Dewantara Project — Persiapan Seleksi Karier untuk iOS</title>
+    <meta
+      name="description"
+      content="Karirfy by Dewantara Project: kurikulum 4 fase, 2.181+ soal kanonik lintas 32 topik, simulasi CAT CBT, Bank Evaluasi, dan 30 esai Artifact untuk seleksi CPNS, BUMN, PCPM BI, PPPK, Kedinasan, dan LPDP."
+    />
+    <meta property="og:title" content="Karirfy by Dewantara Project — Persiapan Seleksi Karier untuk iOS" />
+    <meta
+      property="og:description"
+      content="Kurikulum 4 fase, 2.181+ soal kanonik, simulasi CAT CBT, Bank Evaluasi otomatis, dan 30 esai konseptual dalam antarmuka iOS yang tenang dan terukur."
+    />
+    <meta property="og:image" content="assets/photos/herosection.webp" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Top 2px Scroll Progress Bar -->
+    <div class="progress-bar" id="progressBar" aria-hidden="true">
+      <div class="progress-bar__fill" id="progressFill"></div>
+    </div>
+
+    <!-- Floating Liquid Glass Pill Navbar (Reveals past Hero) -->
+    <header class="floating-nav" id="floatingNav" aria-label="Navigasi Utama">
+      <nav class="floating-nav__inner liquid-glass-clear">
+        <a href="#top" class="floating-nav__brand" aria-label="Beranda Karirfy">
+          <img src="assets/karirfy-logo.png" alt="" class="floating-nav__mark" width="28" height="28" />
+          <span class="floating-nav__word">Karirfy</span>
+        </a>
+        <div class="floating-nav__links">
+          <a href="#showcase" data-nav="showcase">Antarmuka</a>
+          <a href="#creed" data-nav="creed">Filosofi</a>
+          <a href="#jalur" data-nav="jalur">Kurikulum</a>
+          <a href="#faq" data-nav="faq">FAQ</a>
+        </div>
+        <a href="support.html" class="pill-btn chromatic-metal floating-nav__cta">
+          <span>Dukungan</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- ───────────── SECTION 01: ASYMMETRIC LEFT-ANCHORED HERO ───────────── -->
+      <section class="hero" id="hero">
+        <div class="hero__bg" id="heroBg" aria-hidden="true">
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/photos/herosection-mobile.webp" />
+            <img
+              src="assets/photos/herosection.webp"
+              alt=""
+              width="2400"
+              height="1350"
+              fetchpriority="high"
+            />
+          </picture>
+          <div class="hero__scrim"></div>
+        </div>
+
+        <header class="hero__topbar">
+          <a href="#top" class="hero__brand liquid-glass" aria-label="Karirfy by Dewantara Project">
+            <img src="assets/karirfy-logo.png" alt="Logo Karirfy" class="hero__logo" width="28" height="28" />
+            <span class="hero__brand-text">
+              <span class="hero__brand-name">Karirfy</span>
+              <span class="hero__brand-sub">by Dewantara Project</span>
+            </span>
+          </a>
+          <nav class="hero__nav" aria-label="Navigasi Hero">
+            <a href="#showcase" data-mobile="hide">Antarmuka</a>
+            <a href="#jalur" data-mobile="hide">Kurikulum</a>
+            <a href="privacy.html">Privasi</a>
+            <a href="support.html">Dukungan</a>
+          </nav>
+        </header>
+
+        <div class="hero__stage" id="heroText">
+          <div class="hero__badge liquid-glass">
+            <span class="dot" aria-hidden="true"></span>
+            <span>KARIRFY UNTUK iOS · BY DEWANTARA PROJECT</span>
+          </div>
+          <h1 class="hero__headline">
+            Persiapan seleksi<br />
+            yang <em>tenang</em> dan <em>terukur.</em>
+          </h1>
+          <p class="hero__lead">
+            Kurikulum 4 fase, 2.181+ soal kanonik lintas 32 topik, simulasi CAT CBT,
+            Bank Evaluasi otomatis, dan 30 esai Artifact untuk CPNS, BUMN, hingga PCPM BI—dirancang
+            khusus untuk iPhone.
+          </p>
+          <div class="hero__actions">
+            <a href="#showcase" class="pill-btn chromatic-metal">
+              <span>Jelajahi Antarmuka</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+            <a href="#jalur" class="pill-btn liquid-glass">
+              <span>Lihat 6 Jalur Seleksi</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__foot">
+          <div class="hero__metrics">
+            <div class="hero__metric">
+              <strong>2.181+</strong>
+              <span>Soal Kanonik</span>
+            </div>
+            <div class="hero__metric">
+              <strong>6 Jalur · 4 Fase</strong>
+              <span>Kurikulum Terstruktur</span>
+            </div>
+            <div class="hero__metric">
+              <strong>30 Esai</strong>
+              <span>Bacaan Artifact</span>
+            </div>
+          </div>
+          <span class="hero__prov">KARIRFY BY DEWANTARA PROJECT · iOS APP</span>
+        </div>
+      </section>
+
+      <!-- ───────────── EDITORIAL MARQUEE ───────────── -->
+      <section class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>CPNS SKD</span><span>·</span>
+          <span>BUMN TKD &amp; AKHLAK</span><span>·</span>
+          <span>PCPM Bank Indonesia</span><span>·</span>
+          <span>PPPK</span><span>·</span>
+          <span>Sekolah Kedinasan</span><span>·</span>
+          <span>LPDP</span><span>·</span>
+          <span>Kurikulum 4 Fase</span><span>·</span>
+          <span>2.181+ Soal Kanonik</span><span>·</span>
+          <span>Simulasi CAT CBT</span><span>·</span>
+          <span>Bank Evaluasi Otomatis</span><span>·</span>
+          <span>30 Esai Artifact</span><span>·</span>
+          <span>Karirfy by Dewantara Project</span><span>·</span>
+          <span>CPNS SKD</span><span>·</span>
+          <span>BUMN TKD &amp; AKHLAK</span><span>·</span>
+          <span>PCPM Bank Indonesia</span><span>·</span>
+          <span>PPPK</span><span>·</span>
+          <span>Sekolah Kedinasan</span><span>·</span>
+          <span>LPDP</span><span>·</span>
+          <span>Kurikulum 4 Fase</span><span>·</span>
+          <span>2.181+ Soal Kanonik</span><span>·</span>
+          <span>Simulasi CAT CBT</span><span>·</span>
+          <span>Bank Evaluasi Otomatis</span><span>·</span>
+          <span>30 Esai Artifact</span><span>·</span>
+          <span>Karirfy by Dewantara Project</span><span>·</span>
+        </div>
+      </section>
+
+      <!-- ───────────── SECTION 02: iOS INTERFACE EXHIBITION ───────────── -->
+      <section class="stills-section" id="showcase">
+        <div class="container">
+          <div class="stills-header reveal">
+            <div>
+              <div class="eyebrow">
+                <span class="dot"></span>
+                <span>(N°01) · ANTARMUKA APLIKASI iOS</span>
+              </div>
+              <h2 class="section-title">
+                Fokus pada <em>esensi.</em><br />
+                Bebas dari <em>distraksi.</em>
+              </h2>
+            </div>
+            <p class="section-sub">
+              Setiap layar di Karirfy dirancang agar Anda melihat arah belajar hari ini dengan
+              jernih—mulai dari misi harian, peta kurikulum 4 fase, hingga evaluasi kesalahan.
+            </p>
+          </div>
+
+          <div class="screens-triptych reveal">
+            <figure class="screen-card">
+              <div class="screen-stage">
+                <div class="screen-bezel">
+                  <img
+                    src="assets/screens/beranda.webp"
+                    width="720"
+                    height="1558"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Layar Beranda Karirfy yang menampilkan hitung mundur ujian, skor kesiapan, esai Artifact hari ini, Bank Evaluasi, dan target belajar harian."
+                  />
+                </div>
+              </div>
+              <figcaption class="still-caption">
+                <span>01 / <em>Beranda &amp; Misi Harian</em></span>
+                <span>DASHBOARD</span>
+              </figcaption>
+              <p class="screen-desc">
+                Ringkasan kesiapan ujian, hitungan hari menuju tes, durasi belajar harian, dan
+                langkah kurikulum prioritas dalam satu pandangan.
+              </p>
+            </figure>
+
+            <figure class="screen-card screen-card--offset">
+              <div class="screen-stage">
+                <div class="screen-bezel">
+                  <img
+                    src="assets/screens/kurikulum.webp"
+                    width="720"
+                    height="1558"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Layar Kurikulum 4 Fase di Karirfy untuk jalur CPNS lengkap dengan progres modul dan tombol Lanjutkan."
+                  />
+                </div>
+              </div>
+              <figcaption class="still-caption">
+                <span>02 / <em>Kurikulum 4 Fase</em></span>
+                <span>ROADMAP</span>
+              </figcaption>
+              <p class="screen-desc">
+                Peta belajar berurutan dari Fondasi hingga Simulasi Penuh yang otomatis
+                menyesuaikan 6 jalur target seleksi Anda.
+              </p>
+            </figure>
+
+            <figure class="screen-card">
+              <div class="screen-stage">
+                <div class="screen-bezel">
+                  <img
+                    src="assets/screens/simulasi-cbt.webp"
+                    width="720"
+                    height="1558"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Tampilan simulasi CAT CBT Karirfy dengan timer waktu, penanda ragu-ragu, bookmark soal, dan pilihan jawaban berstandar ujian."
+                  />
+                </div>
+              </div>
+              <figcaption class="still-caption">
+                <span>03 / <em>Simulasi CAT CBT</em></span>
+                <span>SIMULASI</span>
+              </figcaption>
+              <p class="screen-desc">
+                Antarmuka ujian bersih dengan penghitung waktu presisi, penanda Ragu-ragu,
+                peta navigasi soal, dan pembahasan tuntas.
+              </p>
+            </figure>
+          </div>
+
+          <div class="screens-diptych reveal">
+            <article class="screen-feature">
+              <div class="screen-bezel">
+                <img
+                  src="assets/screens/bank-evaluasi.webp"
+                  width="720"
+                  height="1558"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Layar Bank Evaluasi Karirfy yang mengumpulkan soal salah dan kosong secara otomatis untuk latihan ulang."
+                />
+              </div>
+              <div class="screen-feature__copy">
+                <div class="eyebrow">
+                  <span class="dot"></span>
+                  <span>04 · BANK EVALUASI OTOMATIS</span>
+                </div>
+                <h3 class="screen-feature__title">
+                  Tuntaskan soal yang <em>terlewat.</em>
+                </h3>
+                <p class="screen-feature__text">
+                  Setiap soal yang salah atau belum terjawab otomatis terekam ke Bank Evaluasi.
+                  Latih kembali lewat mode Drill Ulang hingga sekali jawab benar untuk lulus dari
+                  daftar evaluasi.
+                </p>
+                <div class="screen-feature__tags">
+                  <span class="mini-tag">Auto-Capture Salah</span>
+                  <span class="mini-tag">Bookmark Soal</span>
+                  <span class="mini-tag">1× Benar → Lulus</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="screen-feature">
+              <div class="screen-bezel">
+                <img
+                  src="assets/screens/assessment.webp"
+                  width="720"
+                  height="1558"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Daftar 42 paket Assessment terukur di Karirfy mencakup simulasi SKD CPNS, BUMN Comprehensive Test, dan TWK Deep Dive."
+                />
+              </div>
+              <div class="screen-feature__copy">
+                <div class="eyebrow">
+                  <span class="dot"></span>
+                  <span>05 · 42 PAKET ASSESSMENT</span>
+                </div>
+                <h3 class="screen-feature__title">
+                  Uji ketahanan <em>sebelum</em> hari-H.
+                </h3>
+                <p class="screen-feature__text">
+                  Mulai dari skrining awal 15 menit hingga simulasi penuh SKD CPNS, BUMN TKD
+                  Komprehensif, dan Bank Indonesia untuk mengukur akurasi serta manajemen waktu.
+                </p>
+                <div class="screen-feature__tags">
+                  <span class="mini-tag">42 Paket Simulasi</span>
+                  <span class="mini-tag">Timer Realistis</span>
+                  <span class="mini-tag">Pembahasan Skor 1–5</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────────── SECTION 03: KARIRFY CREED ───────────── -->
+      <section class="creed-section" id="creed">
+        <div class="container creed-inner reveal">
+          <div class="eyebrow">
+            <span class="dot"></span>
+            <span>(MMXXVI) · FILOSOFI KARIRFY</span>
+          </div>
+          <blockquote class="creed-quote">
+            “Kami membangun ruang belajar yang tenang dan jujur—agar <em>konsistensi harian</em>,
+            <em>ketajaman nalar</em>, dan <em>kesiapan ujian</em> tumbuh tanpa kebisingan.”
+          </blockquote>
+          <div class="creed-tenets liquid-glass">
+            <span>2.181+ Soal Kanonik</span>
+            <span class="creed-sep">·</span>
+            <span>30 Esai Artifact</span>
+            <span class="creed-sep">·</span>
+            <span>Karirfy by Dewantara Project</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────────── SECTION 04: KURIKULUM & JALUR SELEKSI ───────────── -->
+      <section class="gallery-section" id="jalur">
+        <div class="container">
+          <div class="gallery-head reveal">
+            <div>
+              <div class="eyebrow eyebrow--light">
+                <span class="dot"></span>
+                <span>(N°02) · KURIKULUM &amp; 6 JALUR SELEKSI</span>
+              </div>
+              <h2 class="section-title section-title--dark">
+                Terstruktur dari fondasi<br />
+                hingga <em>siap ujian.</em>
+              </h2>
+            </div>
+            <p class="section-sub section-sub--dark">
+              Pilih jalur karier Anda dan ikuti kurikulum bertahap yang memadukan teori singkat,
+              latihan lintas 32 topik, simulasi CAT berbatas waktu, dan evaluasi kesalahan otomatis.
+            </p>
+          </div>
+
+          <div class="cosmos-bar reveal" id="galleryFilters" role="group" aria-label="Kategori modul Karirfy">
+            <button type="button" class="cosmos-pill liquid-glass-light is-active" data-filter="all" aria-pressed="true">
+              <span class="cosmos-dot" aria-hidden="true">08</span>
+              <span>Semua · 8</span>
+            </button>
+            <button type="button" class="cosmos-pill liquid-glass-light" data-filter="jalur" aria-pressed="false">
+              <span class="cosmos-dot" aria-hidden="true">04</span>
+              <span>Jalur Seleksi</span>
+            </button>
+            <button type="button" class="cosmos-pill liquid-glass-light" data-filter="kurikulum" aria-pressed="false">
+              <span class="cosmos-dot" aria-hidden="true">4F</span>
+              <span>Kurikulum</span>
+            </button>
+            <button type="button" class="cosmos-pill liquid-glass-light" data-filter="evaluasi" aria-pressed="false">
+              <span class="cosmos-dot" aria-hidden="true">CB</span>
+              <span>Simulasi &amp; Evaluasi</span>
+            </button>
+            <button type="button" class="cosmos-pill liquid-glass-light" data-filter="artifact" aria-pressed="false">
+              <span class="cosmos-dot" aria-hidden="true">30</span>
+              <span>Esai Artifact</span>
+            </button>
+          </div>
+
+          <div class="museum-grid reveal" id="museumGrid">
+            <article class="museum-item" data-cat="jalur">
+              <div class="module-surface module-surface--dark">
+                <div class="module-surface__top">
+                  <span>JALUR 01</span>
+                  <span class="module-surface__badge">CPNS</span>
+                </div>
+                <div class="module-surface__body">
+                  <h3 class="module-surface__title">SKD <em>CAT BKN</em></h3>
+                  <p class="module-surface__desc">
+                    TWK pilar kebangsaan, TIU numerik-verbal-figural, serta 111+ studi kasus TKP berbobot skor 1–5.
+                  </p>
+                </div>
+                <div class="module-surface__foot">TWK · TIU · TKP · SIMULASI 50 SOAL</div>
+              </div>
+              <div class="museum-meta"><strong>CPNS &amp; ASN</strong><span>4 fase · CAT BKN</span></div>
+            </article>
+
+            <article class="museum-item" data-cat="jalur">
+              <div class="module-surface">
+                <div class="module-surface__top">
+                  <span>JALUR 02</span>
+                  <span class="module-surface__badge">BUMN</span>
+                </div>
+                <div class="module-surface__body">
+                  <h3 class="module-surface__title">TKD &amp; <em>AKHLAK</em></h3>
+                  <p class="module-surface__desc">
+                    Latihan Core Values AKHLAK BUMN, wawasan bisnis korporasi, verbal, ketelitian angka, dan Bahasa Inggris.
+                  </p>
+                </div>
+                <div class="module-surface__foot">TKD · CORE VALUES · ENGLISH PROFICIENCY</div>
+              </div>
+              <div class="museum-meta"><strong>Rekrutmen BUMN</strong><span>4 fase · 45 soal</span></div>
+            </article>
+
+            <article class="museum-item" data-cat="jalur">
+              <div class="module-surface module-surface--dark">
+                <div class="module-surface__top">
+                  <span>JALUR 03</span>
+                  <span class="module-surface__badge">PCPM BI</span>
+                </div>
+                <div class="module-surface__body">
+                  <h3 class="module-surface__title">Bank <em>Indonesia</em></h3>
+                  <p class="module-surface__desc">
+                    Penalaran abstrak figural vektor presisi, kebanksentralan, ekonomi makro-moneter, dan wawasan keuangan.
+                  </p>
+                </div>
+                <div class="module-surface__foot">FIGURAL SVG · KEBANKSENTRALAN · EKONOMI</div>
+              </div>
+              <div class="museum-meta"><strong>PCPM BI</strong><span>4 fase · analitik</span></div>
+            </article>
+
+            <article class="museum-item" data-cat="jalur">
+              <div class="module-surface">
+                <div class="module-surface__top">
+                  <span>JALUR 04–06</span>
+                  <span class="module-surface__badge">NASIONAL</span>
+                </div>
+                <div class="module-surface__body">
+                  <h3 class="module-surface__title">PPPK, Kedinasan &amp; <em>LPDP</em></h3>
+                  <p class="module-surface__desc">
+                    Modul terarah untuk seleksi aparatur teknis, sekolah kedinasan, serta tes bakat skolastik beasiswa.
+                  </p>
+                </div>
+                <div class="module-surface__foot">SJT MANAJERIAL · SKOLASTIK · TPA</div>
+              </div>
+              <div class="museum-meta"><strong>PPPK &amp; Beasiswa</strong><span>3 jalur · terkurasi</span></div>
+            </article>
+
+            <article class="museum-item" data-cat="kurikulum">
+              <div class="module-surface">
+                <div class="module-surface__top">
+                  <span>SISTEM BELAJAR</span>
+                  <span class="module-surface__badge">4 FASE</span>
+                </div>
+                <div class="module-surface__body">
+                  <h3 class="module-surface__title">Kurikulum <em>Adaptif</em></h3>
+                  <p class="module-surface__desc">
+                    Mengunci urutan materi agar Anda menguasai fondasi konsep sebelum masuk penguatan dan simulasi penuh.
+                  </p>
+                </div>
+                <div class="module-surface__foot">FONDASI → INTI → PENGUATAN → SIMULASI</div>
+              </div>
+              <div class="museum-meta"><strong>Peta Kurikulum</strong><span>Target tuntas 80%</span></div>
+            </article>
+
+            <article class="museum-item" data-cat="evaluasi">
+              <div class="module-surface module-surface--dark">
+                <div class="module-surface__top">
+                  <span>LATIHAN &amp; UJIAN</span>
+                  <span class="module-surface__badge">32 TOPIK</span>
+                </div>
+                <div class="module-surface__body">
+                  <h3 class="module-surface__title">7 Domain <em>Latihan</em></h3>
+                  <p class="module-surface__desc">
+                    Kognitif, Kebangsaan, Psikometri &amp; Sikap Kerja, Bahasa Inggris, Ekonomi, Kebanksentralan, hingga BUMN.
+                  </p>
+                </div>
+                <div class="module-surface__foot">2.181+ SOAL · PEMBAHASAN LANGKAH DEMI LANGKAH</div>
+              </div>
+              <div class="museum-meta"><strong>Bank Soal Kanonik</strong><span>7 domain penuh</span></div>
+            </article>
+
+            <article class="museum-item" data-cat="evaluasi">
+              <div class="module-surface">
+                <div class="module-surface__top">
+                  <span>DRILL ULANG</span>
+                  <span class="module-surface__badge">EVALUASI</span>
+                </div>
+                <div class="module-surface__body">
+                  <h3 class="module-surface__title">Bank <em>Evaluasi</em></h3>
+                  <p class="module-surface__desc">
+                    Kumpulkan otomatis butir yang keliru atau kosong, simpan soal penting via Bookmark, dan latih hingga tuntas.
+                  </p>
+                </div>
+                <div class="module-surface__foot">AUTO-CAPTURE · 1× BENAR LANGSUNG LULUS</div>
+              </div>
+              <div class="museum-meta"><strong>Mistake Bank</strong><span>Drill fokus</span></div>
+            </article>
+
+            <article class="museum-item" data-cat="artifact">
+              <div class="module-surface module-surface--dark">
+                <div class="module-surface__top">
+                  <span>PUSTAKA KONSEP</span>
+                  <span class="module-surface__badge">30 ESAI</span>
+                </div>
+                <div class="module-surface__body">
+                  <h3 class="module-surface__title">Bacaan <em>Artifact</em></h3>
+                  <p class="module-surface__desc">
+                    Esai mendalam tentang Bayesian reasoning, cognitive load management, ekonomi perilaku, dan strategi tes CAT.
+                  </p>
+                </div>
+                <div class="module-surface__foot">OTOMATIS TERCATAT SELESAI · 5–14 MENIT BACA</div>
+              </div>
+              <div class="museum-meta"><strong>30 Esai Artifact</strong><span>Konseptual</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────────── SECTION 05: FAQ ACCORDION ───────────── -->
+      <section class="faq-section" id="faq">
+        <div class="container faq-wrap">
+          <div class="reveal">
+            <div class="eyebrow eyebrow--light">
+              <span class="dot"></span>
+              <span>(N°03) · PERTANYAAN UMUM</span>
+            </div>
+            <h2 class="section-title section-title--dark">
+              Mengenal <em>Karirfy.</em>
+            </h2>
+          </div>
+
+          <div class="faq-list reveal" id="faqList">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-q" aria-expanded="true" aria-controls="faq-guest">
+                <span>Bisakah saya mencoba Karirfy tanpa mendaftar akun terlebih dahulu?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a" id="faq-guest">
+                <div class="faq-a__body">
+                  <p>
+                    Bisa. Mode Tamu memungkinkan Anda langsung mencoba alur beranda, melihat peta Kurikulum 4 Fase, mengerjakan modul domain Kognitif dan Bahasa Inggris pada tingkat akses Starter, serta membaca esai Artifact di perangkat iPhone Anda.
+                  </p>
+                  <p>
+                    Masuk dengan Apple, Google, atau email kapan saja jika ingin menyinkronkan progres lintas perangkat atau mengaktifkan paket Karirfy Pro.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-pro">
+                <span>Apa saja yang termasuk dalam paket Karirfy Pro?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a" id="faq-pro" inert>
+                <div class="faq-a__body">
+                  <p>
+                    Karirfy Pro membuka seluruh 7 domain latihan (32 topik kanonik untuk CPNS, BUMN, PCPM BI, PPPK, Kedinasan, dan LPDP), 42 paket simulasi CAT CBT, pembahasan lengkap di akhir sesi, serta sinkronisasi Bank Evaluasi lintas sesi.
+                  </p>
+                  <p>
+                    Di iOS, paket Pro tersedia dalam pilihan Pro Bulanan, Pro Tahunan, dan Pro Selamanya (pembelian satu kali) melalui Apple App Store. Harga dan periode tagihan ditampilkan jelas pada layar penawaran sebelum Anda mengonfirmasi transaksi.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-restore">
+                <span>Bagaimana cara memulihkan atau mengelola langganan App Store?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a" id="faq-restore" inert>
+                <div class="faq-a__body">
+                  <p>
+                    Pastikan iPhone Anda menggunakan Apple Account yang sama saat membeli, lalu buka menu <strong>Profil → Tingkatkan ke Pro → Pulihkan Pembelian</strong> di dalam aplikasi Karirfy.
+                  </p>
+                  <p>
+                    Anda dapat melihat, mengubah, atau membatalkan perpanjangan otomatis kapan saja lewat <a href="https://apps.apple.com/account/subscriptions" class="text-link" rel="noopener noreferrer">Pengaturan Langganan Apple</a> minimal 24 jam sebelum siklus berakhir. Informasi lengkap tersedia di <a href="terms.html" class="text-link">Ketentuan Layanan</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-privacy">
+                <span>Bagaimana Karirfy menjaga privasi data belajar saya?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a" id="faq-privacy" inert>
+                <div class="faq-a__body">
+                  <p>
+                    Karirfy hanya menyimpan data yang diperlukan untuk menjalankan pengalaman belajar Anda—seperti identitas autentikasi, target jalur ujian, riwayat latihan, Bank Evaluasi, bookmark, serta foto profil opsional apabila Anda mengunggahnya.
+                  </p>
+                  <p>
+                    Kami tidak memasang pelacak iklan pihak ketiga dan tidak menjual data pengguna. Rincian lengkap tercantum pada <a href="privacy.html" class="text-link">Kebijakan Privasi</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-delete">
+                <span>Bagaimana cara menghapus akun Karirfy secara permanen?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a" id="faq-delete" inert>
+                <div class="faq-a__body">
+                  <p>
+                    Saat masuk ke akun Anda, buka <strong>Profil → Hapus Akun Permanen</strong> lalu konfirmasi. Tindakan ini menghapus profil serta riwayat belajar Anda dari server Karirfy secara permanen.
+                  </p>
+                  <p>
+                    Perlu diperhatikan bahwa menghapus akun Karirfy tidak otomatis membatalkan langganan Apple Anda; hentikan perpanjangan melalui Apple Subscriptions. Jika Anda kesulitan masuk, hubungi kami via halaman <a href="privacy.html#choices" class="text-link">Retensi &amp; Penghapusan Akun</a> atau email <a href="mailto:dewantaraproject.id@gmail.com" class="text-link">dewantaraproject.id@gmail.com</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ───────────── SECTION 06: MEGA ARCHITECTURAL FOOTER ───────────── -->
+    <footer class="mega-footer" id="contact">
+      <div class="container">
+        <div class="footer-hero reveal">
+          <div class="eyebrow">
+            <span class="dot"></span>
+            <span>(N°04) · KARIRFY BY DEWANTARA PROJECT · MMXXVI</span>
+          </div>
+          <h2 class="footer-title">
+            Melangkah lebih<br />
+            <em>siap</em> dan terarah.
+          </h2>
+          <div class="footer-cta-row">
+            <a href="mailto:dewantaraproject.id@gmail.com?subject=Karirfy%20iOS%20Support" class="footer-mail-pill chromatic-metal">
+              <span>dewantaraproject.id@gmail.com</span>
+              <span class="footer-mail-pill__icon" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-grid">
+          <div>
+            <h4>01 · Produk</h4>
+            <ul>
+              <li><a href="#showcase">Antarmuka iOS</a></li>
+              <li><a href="#jalur">Kurikulum 4 Fase</a></li>
+              <li><a href="#creed">Filosofi Karirfy</a></li>
+              <li><a href="#faq">Pertanyaan Umum</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>02 · Legal &amp; Bantuan</h4>
+            <ul>
+              <li><a href="privacy.html">Kebijakan Privasi</a></li>
+              <li><a href="terms.html">Ketentuan Layanan</a></li>
+              <li><a href="support.html">Pusat Dukungan</a></li>
+              <li><a href="privacy.html#choices">Hapus Akun</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>03 · Dewantara Project</h4>
+            <ul>
+              <li><span>Karirfy by Dewantara Project</span></li>
+              <li><span>6 Jalur · 32 Topik Kanonik</span></li>
+              <li><span>StoreKit 2 &amp; RevenueCat iOS</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4>04 · Kontak Langsung</h4>
+            <ul>
+              <li><a href="mailto:dewantaraproject.id@gmail.com">dewantaraproject.id@gmail.com</a></li>
+              <li><a href="mailto:dewantaraproject.id@gmail.com?subject=Masukan%20Karirfy">Masukan &amp; Laporan Bug</a></li>
+              <li><a href="support.html">Panduan Pemulihan Pro</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-wordmark" aria-hidden="true">karirfy</div>
+
+        <div class="footer-bottom">
+          <span>© 2026 Karirfy by Dewantara Project</span>
+          <span class="footer-bottom__mid">Persiapan seleksi CPNS, BUMN &amp; PCPM BI untuk iOS</span>
+          <a href="#top" class="footer-top-link">Kembali ke atas ↑</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
