@@ -5,7 +5,12 @@ export const STARTER_DAILY_ASSESSMENT_LIMIT = 1;
 export const GUEST_DAILY_EXERCISE_LIMIT = 1;
 export const GUEST_DAILY_ASSESSMENT_LIMIT = 0;
 
+export const LAUNCH_OPEN_WEEK_START_ISO = "2026-11-28T00:00:00+07:00";
+export const LAUNCH_OPEN_WEEK_END_ISO = "2026-12-05T23:59:59+07:00";
+
 const WIB_OFFSET_MS = 7 * 3_600_000;
+const DAY_MS = 86_400_000;
+const HOUR_MS = 3_600_000;
 
 export type QuotaLockReason =
   | "guest_assessment"
@@ -15,9 +20,17 @@ export type QuotaLockReason =
   | "weekend_review"
   | "offline_pack";
 
+export interface LaunchOpenWeekStatus {
+  active: boolean;
+  daysLeft: number;
+  hoursLeft: number;
+  endDateLabel: string;
+}
+
 export interface DailyQuotaStatus {
   isPro: boolean;
   isGuest: boolean;
+  isLaunchPromo?: boolean;
   wibDateKey: string;
   exerciseUsed: number;
   exerciseLimit: number | null;
@@ -26,6 +39,29 @@ export interface DailyQuotaStatus {
   assessmentLimit: number | null;
   assessmentRemaining: number | null;
   resetLabel: string;
+}
+
+export function getLaunchOpenWeekStatus(now: Date = new Date()): LaunchOpenWeekStatus {
+  const nowMs = now.getTime();
+  const startMs = new Date(LAUNCH_OPEN_WEEK_START_ISO).getTime();
+  const endMs = new Date(LAUNCH_OPEN_WEEK_END_ISO).getTime();
+  if (!Number.isFinite(nowMs) || nowMs < startMs || nowMs > endMs) {
+    return {
+      active: false,
+      daysLeft: 0,
+      hoursLeft: 0,
+      endDateLabel: "5 Des 2026",
+    };
+  }
+  const remainingMs = Math.max(0, endMs - nowMs);
+  const daysLeft = Math.max(1, Math.ceil(remainingMs / DAY_MS));
+  const hoursLeft = Math.max(1, Math.ceil(remainingMs / HOUR_MS));
+  return {
+    active: true,
+    daysLeft,
+    hoursLeft,
+    endDateLabel: "5 Des 2026",
+  };
 }
 
 export function getWibDateKey(dateOrIso: Date | string = new Date()): string {
@@ -61,6 +97,17 @@ export function isProActive(
   );
 }
 
+export function hasEffectiveProAccess(
+  rawTier?: string | null,
+  isPremium?: boolean,
+  premiumExpiryDate?: string | null,
+  isGuest = false,
+  now: Date = new Date(),
+): boolean {
+  if (isProActive(rawTier, isPremium, premiumExpiryDate)) return true;
+  return !isGuest && getLaunchOpenWeekStatus(now).active;
+}
+
 function hasLegacyPaidTier(
   rawTier?: string | null,
   isPremium?: boolean,
@@ -93,12 +140,15 @@ export function computeDailyQuotaStatus(params: {
   attempts: AttemptRecord[];
   now?: Date;
 }): DailyQuotaStatus {
-  const wibDateKey = getWibDateKey(params.now ?? new Date());
+  const now = params.now ?? new Date();
+  const wibDateKey = getWibDateKey(now);
   const isGuest = Boolean(params.isGuest);
-  const unlimited =
+  const paidUnlimited =
     !isGuest &&
     (isProActive(params.rawTier, params.isPremium, params.premiumExpiryDate) ||
       hasLegacyPaidTier(params.rawTier, params.isPremium, params.premiumExpiryDate));
+  const promoActive = !isGuest && !paidUnlimited && getLaunchOpenWeekStatus(now).active;
+  const unlimited = paidUnlimited || promoActive;
 
   let exerciseUsed = 0;
   let assessmentUsed = 0;
@@ -117,6 +167,7 @@ export function computeDailyQuotaStatus(params: {
     return {
       isPro: true,
       isGuest: false,
+      isLaunchPromo: promoActive,
       wibDateKey,
       exerciseUsed,
       exerciseLimit: null,
@@ -124,7 +175,9 @@ export function computeDailyQuotaStatus(params: {
       assessmentUsed,
       assessmentLimit: null,
       assessmentRemaining: null,
-      resetLabel: "Tanpa batas harian",
+      resetLabel: promoActive
+        ? "Pekan Peluncuran Gratis · s/d 5 Des"
+        : "Tanpa batas harian",
     };
   }
 
@@ -134,6 +187,7 @@ export function computeDailyQuotaStatus(params: {
   return {
     isPro: false,
     isGuest,
+    isLaunchPromo: false,
     wibDateKey,
     exerciseUsed,
     exerciseLimit,
@@ -156,7 +210,12 @@ export function canStartMeteredSession(
   },
 ): { allowed: boolean; reason?: QuotaLockReason } {
   if (quota.isPro) return { allowed: true };
-  if (options?.isDailySprint || options?.isMistakeDrill || options?.isDiagnostic || options?.isWeekendTryout) {
+  if (
+    options?.isDailySprint ||
+    options?.isMistakeDrill ||
+    options?.isDiagnostic ||
+    options?.isWeekendTryout
+  ) {
     return { allowed: true };
   }
 
@@ -188,7 +247,6 @@ export function checkModuleAccess(
 ): boolean {
   const effectiveTier = resolveEffectiveTier(rawTier, isPremium, premiumExpiryDate).toLowerCase();
   if (!effectiveTier) return false;
-  // Open catalog freemium: all modules & simulations are visible and accessible within daily session quotas.
   return true;
 }
 
@@ -197,11 +255,15 @@ export function formatTierBadge(
   isPremium?: boolean,
   premiumExpiryDate?: string | null,
   isGuest = false,
+  now: Date = new Date(),
 ): string {
   if (isGuest) return "Mode Tamu · 1 Latihan/Hari";
   const effective = resolveEffectiveTier(rawTier, isPremium, premiumExpiryDate);
   const lower = effective.toLowerCase();
-  if (lower === "starter" || lower === "pejuang") return "Starter Gratis · 3+1/Hari";
   if (lower === "pro" || lower === "raja") return "Pro · Akses Penuh";
+  if ((lower === "starter" || lower === "pejuang") && getLaunchOpenWeekStatus(now).active) {
+    return "Launch Pass · Pro Gratis 7 Hari";
+  }
+  if (lower === "starter" || lower === "pejuang") return "Starter Gratis · 3+1/Hari";
   return `${effective} Aktif`;
 }

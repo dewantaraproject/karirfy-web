@@ -9,6 +9,7 @@ import {
   Layers,
   Play,
   ShieldCheck,
+  Sparkles,
   Target,
   TrendingUp,
 } from "lucide-react";
@@ -25,6 +26,7 @@ import {
 import { useAuth } from "../../contexts/AuthContext";
 import { useTheme } from "../../contexts/ThemeContext";
 import { useKarirfyData } from "../../contexts/KarirfyDataContext";
+import { getLaunchOpenWeekStatus } from "../../lib/tierAccess";
 import { formatRelativeTime, cn } from "../../lib/utils";
 import type { NavTabId } from "../layout/Sidebar";
 
@@ -68,12 +70,43 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
   const highlightCardClass =
     profile.careerGoal === "CPNS" || profile.careerGoal === "Kedinasan" ? "c-red" : "c-navy";
+  const launchPromo = getLaunchOpenWeekStatus();
 
   return (
     <div className="flex-1 min-h-0 flex flex-col xl:flex-row gap-3.5 overflow-hidden">
       {/* CENTER HERO SLAB (Accrual 2-slab Bento Architecture) */}
       <section className="floating-slab flex-1 overflow-hidden flex flex-col">
         <div className="flex-1 min-h-0 slab-scroll scroll-gpu-layer p-5 lg:p-6 space-y-5">
+        {launchPromo.active && (
+          <div className="apple-card p-3.5 lg:px-4 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="apple-sub-box w-9 h-9 rounded-xl flex items-center justify-center shrink-0">
+                <Sparkles className="w-4 h-4 text-[var(--text-primary)]" />
+              </div>
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs font-bold text-[var(--text-primary)]">
+                    Pekan Peluncuran 7 Hari: Akses Pro Terbuka Penuh
+                  </span>
+                  <span className="apple-sub-box px-2 py-0.5 rounded-full text-[10px] font-bold text-[var(--text-secondary)]">
+                    s/d 5 Des 2026
+                  </span>
+                </div>
+                <p className="text-[11px] text-[var(--text-tertiary)] mt-0.5 truncate">
+                  Seluruh CAT, Bank Evaluasi, CV Studio ATS, dan ekspor Pro aktif tanpa batas ({launchPromo.daysLeft} hari tersisa).
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigateTab("assessment")}
+              className="apple-sub-box px-3 py-1.5 rounded-full text-[11px] font-semibold text-[var(--text-primary)] hover:bg-[var(--glass-bg-hover)] transition-colors inline-flex items-center gap-1.5 shrink-0"
+            >
+              <span>Mulai Simulasi</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        )}
         {/* Top Hero & 3 Monochrome KPIs */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
           <div className="apple-card p-5">

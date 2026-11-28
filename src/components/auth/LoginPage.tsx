@@ -37,6 +37,7 @@ import {
   type EncryptedQrSessionEnvelope,
   type KarirfyWebQrPayload,
 } from "../../lib/webAuthSync";
+import { getLaunchOpenWeekStatus } from "../../lib/tierAccess";
 import { cn } from "../../lib/utils";
 
 type LoginTab = "qr" | "form";
@@ -221,9 +222,21 @@ export const LoginPage: React.FC = () => {
           </div>
 
           <div className="my-8 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full apple-sub-box text-[11px] font-semibold text-[var(--text-secondary)]">
-              <Smartphone className="w-3.5 h-3.5" />
-              <span>Tautan Langsung iPhone &amp; iPad via QR Terenkripsi</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full apple-sub-box text-[11px] font-semibold text-[var(--text-secondary)]">
+                <Smartphone className="w-3.5 h-3.5" />
+                <span>Tautan Langsung iPhone &amp; iPad via QR Terenkripsi</span>
+              </div>
+              {(() => {
+                const launchPromo = getLaunchOpenWeekStatus();
+                if (!launchPromo.active) return null;
+                return (
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full apple-sub-box text-[11px] font-semibold text-[var(--text-primary)]">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Pekan Peluncuran 7 Hari: Pro Gratis s/d 5 Des 2026</span>
+                  </div>
+                );
+              })()}
             </div>
 
             <h1 className="text-3xl lg:text-[42px] font-bold tracking-tight leading-[1.08] text-[var(--text-primary)]">

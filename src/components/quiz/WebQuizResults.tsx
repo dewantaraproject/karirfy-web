@@ -17,7 +17,7 @@ export const WebQuizResults: React.FC = () => {
   const official = lastQuizResult.officialSummary;
   const passed = official ? official.passed : lastQuizResult.score >= 70;
 
-  const handleDownloadScoreCard = async () => {
+  const handleDownloadScoreCard = async (format: "portrait" | "story") => {
     setExporting(true);
     try {
       await shareScoreCardPng({
@@ -38,8 +38,14 @@ export const WebQuizResults: React.FC = () => {
           { label: "Skor Poin", value: `${lastQuizResult.rawPoints}/${lastQuizResult.maxPoints}` },
           { label: "Status", value: passed ? "Lolos Target" : "Evaluasi" },
         ],
+        subtests: official?.subtests?.slice(0, 3).map((s) => ({
+          label: s.label,
+          value: `${s.points}/${s.maxPoints}`,
+          passed: s.passed,
+        })),
+        format,
         footerNote: "karirfy-web.dewantaraproject-id.workers.dev",
-        filename: `karirfy-skor-${Date.now()}.png`,
+        filename: `karirfy-${format}-${Date.now()}.png`,
       });
     } finally {
       setExporting(false);
@@ -59,15 +65,27 @@ export const WebQuizResults: React.FC = () => {
           <span>Kembali ke Workstation</span>
         </button>
 
-        <button
-          type="button"
-          disabled={exporting}
-          onClick={() => void handleDownloadScoreCard()}
-          className="px-4 py-2 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-xs font-bold inline-flex items-center gap-1.5"
-        >
-          <Download className="w-3.5 h-3.5" />
-          <span>{exporting ? "Merender PNG..." : "Unduh Kartu Skor PNG"}</span>
-        </button>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            disabled={exporting}
+            onClick={() => void handleDownloadScoreCard("story")}
+            className="inner-pseudo-glass px-4 py-2 rounded-full text-xs font-semibold text-[var(--text-primary)] inline-flex items-center gap-1.5"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>{exporting ? "Merender..." : "Story IG 9:16"}</span>
+          </button>
+
+          <button
+            type="button"
+            disabled={exporting}
+            onClick={() => void handleDownloadScoreCard("portrait")}
+            className="px-4 py-2 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-xs font-bold inline-flex items-center gap-1.5"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>{exporting ? "Merender..." : "Unduh Kartu Skor"}</span>
+          </button>
+        </div>
       </header>
 
       {/* Scrollable Results Content */}
