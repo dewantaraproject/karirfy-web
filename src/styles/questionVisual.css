@@ -1,0 +1,61 @@
+.q-visual {
+  width: 100%;
+  min-width: 0;
+  margin: 14px auto 8px;
+  padding: clamp(7px, 2vw, 12px);
+  border-radius: 21px;
+}
+.q-algebra { display: grid; gap: 6px; }
+.q-symbols > span { color: var(--mut); font-size: .76rem; font-weight: 650; }
+.q-symbols :is(ul, ol) { display: flex; flex-wrap: wrap; gap: 5px; list-style: none; padding: 0; margin: 5px 0 8px; }
+.q-symbols .matrix-cell { width: auto; height: auto; min-height: 32px; padding: 4px 7px; font-size: .9rem; }
+.q-equation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(2.4ch, auto);
+  width: 100%;
+  height: auto;
+  min-height: 42px;
+  align-items: center;
+  padding: 6px 9px;
+  font-size: clamp(14px, 4vw, 18px);
+}
+.q-terms { display: flex; flex-wrap: wrap; gap: 3px; }
+.q-shape { width: clamp(14px, 4vw, 20px); height: clamp(14px, 4vw, 20px); stroke: currentColor; stroke-width: 1.4; }
+.q-shape-circle { color: #3069aa; fill: #79b6f1; }
+.q-shape-triangle { color: #936222; fill: #eebc69; }
+.q-shape-square { color: #277468; fill: #74c6b6; }
+.q-visual-scroll { overflow-x: auto; }
+.q-data-table { width: 100%; border-collapse: separate; border-spacing: 4px; font-size: .78rem; }
+.q-data-table caption, .q-bars figcaption, .q-schedule-legend { text-align: left; color: var(--mut); font-size: .76rem; font-weight: 650; padding: 3px; }
+.q-data-table :is(th, td) { width: auto; height: auto; padding: 5px; vertical-align: middle; }
+.q-data-table th { text-align: left; }
+.q-data-table .matrix-cell { font: inherit; border-radius: 9px; font-variant-numeric: tabular-nums; }
+.q-visual.q-schedule-card { padding: 7px 4px; }
+.q-schedule-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0; padding: 0 2px 3px; font-size: .69rem; }
+.q-schedule-legend > span { display: inline-flex; align-items: center; gap: 5px; }
+.q-schedule-hint { margin-inline-start: auto; font-weight: 500; }
+.q-schedule-frame { container: question-schedule / inline-size; }
+.q-schedule-wide { display: none; }
+.q-schedule-compact { display: grid; gap: 4px; }
+.q-schedule { table-layout: fixed; border-spacing: 0 1px; font-size: 9.5px; line-height: 1.2; }
+.q-schedule :is(th, td) { padding: 1px 0; }
+.q-schedule tr > :first-child { width: 30px; }
+.q-schedule thead th { text-align: center; color: var(--mut); font-variant-numeric: tabular-nums; letter-spacing: -0.025em; white-space: nowrap; }
+.q-schedule thead th:first-child { text-align: left; }
+.q-schedule tbody .quiz-status-dot { display: block; width: 13px; height: 13px; margin: 0 auto; }
+.q-slot { min-height: 26px; width: 100%; padding: 0; border: 0; border-radius: 7px; background: transparent; color: var(--ink); letter-spacing: inherit; }
+.q-slot[aria-pressed="true"] { background: var(--cta); color: var(--ctat); }
+@container question-schedule (min-width: 224px) {
+  .q-schedule-wide { display: block; }
+  .q-schedule-compact { display: none; }
+}
+@container question-schedule (min-width: 280px) {
+  .q-schedule { font-size: .72rem; border-spacing: 0 2px; }
+  .q-schedule tr > :first-child { width: 36px; }
+}
+.q-bars ul { display: grid; gap: 8px; margin: 8px 0 2px; padding: 0; list-style: none; }
+.q-bars li { display: grid; grid-template-columns: 7ch minmax(0, 1fr) 4ch; align-items: center; gap: 6px; font-size: .78rem; }
+.q-bars strong { text-align: right; font-variant-numeric: tabular-nums; }
+.q-bar-track { border: 1px solid var(--line-strong); border-radius: 5px; height: 13px; }
+.q-bar-track i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, #497dc1, #70afc1); }
+.q-illustration img { display: block; width: 100%; height: auto; border-radius: 12px; }
